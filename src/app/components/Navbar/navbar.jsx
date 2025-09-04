@@ -1,5 +1,7 @@
 import React from 'react';
 import './navbar.css';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -10,9 +12,15 @@ const Navbar = () => {
       {/* Navigation links */}
       <ul>
         <li>Home</li>
-        <li>Menu</li>
         <li>About</li>
-        <li>Sign in</li>
+        <signed-in>
+          <UserButton />
+        </signed-in>
+        <signed-out>
+          <Link href='/sign-in'>
+            <li>Sign in</li>
+          </Link>
+        </signed-out>
       </ul>
 
       {/* Search bar in the middle */}
